@@ -7,6 +7,7 @@ let operating = false;
 let reset = false;
 let validInput = false;
 let operator = "";
+let firsNumber = true;
 
 results.appendChild(mostrar);
 
@@ -20,9 +21,16 @@ numberButtons.forEach((button) => {
             mostrar.textContent = ''; reset = false;
 
         mostrar.textContent = mostrar.textContent + button.id;
-        if(!operating)
-            num1 = num1 + button.id;
-        else
+        
+        if(!operating){
+            if(!firsNumber){
+                num1 = num1 + button.id;
+            } else {
+                mostrar.textContent = button.id;
+                num1 = button.id; 
+                firsNumber = false;
+            }           
+        } else
             num2 = num2 + button.id;
 
         validInput = true;
@@ -33,6 +41,7 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click",() => {
         if(validInput){
             if(!operating && button.id != "="){
+                firsNumber = false;
                 //save first number
                 operating = true;
                 operator = button.id;
@@ -41,9 +50,10 @@ operatorButtons.forEach((button) => {
             } else if (button.id == "="){
                 //resolve
                 mostrar.textContent = resolve(num1,num2,operator)
-                operating = false;
                 num1 = mostrar.textContent;
                 num2 = 0;
+                operating = false;
+                firsNumber = true;
             } else {
                 //resolve to keep going
                 mostrar.textContent = resolve(num1,num2,operator)  + button.id;
