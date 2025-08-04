@@ -11,10 +11,11 @@ results.appendChild(mostrar);
 
 const numberButtons = document.querySelectorAll(".num");
 const operatorButtons = document.querySelectorAll(".op");
+const cleanButton = document.querySelector("#clean");
 
 numberButtons.forEach((button) => {
     button.addEventListener("click",() => {
-        if(mostrar.textContent == "ERROR" || resolved == true)
+        if(mostrar.textContent == "ERROR" || mostrar.textContent == "LIMPIO!" || resolved == true)
             mostrar.textContent = ''; resolved = false;
 
         mostrar.textContent = mostrar.textContent + button.id;
@@ -33,6 +34,7 @@ operatorButtons.forEach((button) => {
             operator = button.id;
             mostrar.textContent = "";
         } else if (button.id == "equal"){
+            //resolve
             mostrar.textContent = resolve(num1,num2,operator)
             operating = false
             resolved = true;
@@ -46,6 +48,13 @@ operatorButtons.forEach((button) => {
             mostrar.textContent = "ERROR"
         }
     });
+});
+
+cleanButton.addEventListener("click",() => {
+    num1 = '0';
+    num2 = '0';
+    operating = false;
+    mostrar.textContent = "LIMPIO!";
 });
 
 function resolve(a,b,op){

@@ -44,7 +44,7 @@ button{
 #numbers{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     width: 27em;
     margin: 0;
     gap: 1em;
@@ -55,6 +55,14 @@ button{
     flex-direction: column;
     margin: 0;
     gap: 1em;
+}
+
+#clean {
+    border: 4px solid rgb(113, 117, 117);
+    border-radius: 0.4em;
+    background-color: rgb(223, 227, 228);
+    color: rgb(113, 117, 117);
+    width: 3.5em;
 }
 
 .num{
