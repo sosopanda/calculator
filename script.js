@@ -5,7 +5,7 @@ let num1 = '0';
 let num2 = '0';
 let operating = false;
 let reset = false;
-let validInput = true;
+let validInput = false;
 let operator = "";
 
 results.appendChild(mostrar);
@@ -68,12 +68,21 @@ cleanButton.addEventListener("click",() => {
     operating = false;
     reset = true;
     mostrar.textContent = "LIMPIO!";
+    validInput = false;
 });
 
 function resolve(a,b,op){
     switch (op){
         case "/":
-            return parseFloat(a) / parseFloat(b); 
+            if(b!=0)
+                return parseFloat(a) / parseFloat(b);
+            else
+                num1 = '0';
+                num2 = '0';
+                operating = false;
+                reset = true;
+                validInput = false
+                return "ERROR!" 
             break;
         case "+":
             return parseInt(a) + parseInt(b);
