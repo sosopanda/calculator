@@ -57,12 +57,15 @@ button{
     gap: 1em;
 }
 
-#clean {
+.others {
     border: 4px solid rgb(113, 117, 117);
     border-radius: 0.4em;
     background-color: rgb(223, 227, 228);
     color: rgb(113, 117, 117);
-    width: 3.5em;
+    width: 1.6em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .num{
