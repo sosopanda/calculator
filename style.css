@@ -68,6 +68,11 @@ button{
     justify-content: center;
 }
 
+#back {
+    display: flex;
+    align-items: center;
+}
+
 .num{
     border: 4px solid rgb(112, 182, 187);
     background-color: lightcyan;
